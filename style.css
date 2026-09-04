@@ -1,0 +1,518 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 20% 50%,
+            #4324a3,
+            transparent 35%
+        ),
+        linear-gradient(
+            120deg,
+            #17034e,
+            #32107e,
+            #1978c9
+        );
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   BACKGROUND CIRCLES
+========================= */
+
+.circle {
+    position: fixed;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    opacity: 0.35;
+}
+
+
+.circle1 {
+    width: 420px;
+    height: 420px;
+
+    left: -170px;
+    top: 25%;
+
+    background: #347bd5;
+}
+
+
+.circle2 {
+    width: 500px;
+    height: 500px;
+
+    right: -250px;
+    bottom: -200px;
+
+    background: #703bc0;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+    width: 95%;
+
+    max-width: 1100px;
+
+    min-height: 90vh;
+
+    padding: 35px 50px;
+
+    position: relative;
+
+    z-index: 2;
+
+    border-radius: 20px;
+
+    background: rgba(20, 5, 65, 0.65);
+
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    text-align: left;
+
+    margin-bottom: 20px;
+}
+
+
+.task {
+    font-size: 45px;
+
+    font-weight: 300;
+
+    display: inline-block;
+}
+
+
+.line {
+    width: 175px;
+
+    height: 2px;
+
+    background: #43a4ed;
+
+    margin-top: 5px;
+}
+
+
+header h1 {
+    font-size: 36px;
+
+    margin-top: 20px;
+
+    color: white;
+}
+
+
+header p {
+    font-size: 25px;
+
+    font-weight: bold;
+
+    color: #ffd84d;
+}
+
+
+/* =========================
+   GAME AREA
+========================= */
+
+main {
+    width: 100%;
+
+    max-width: 550px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+.game-info h2 {
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+
+#status {
+    color: #ffd84d;
+
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   GAME MODE
+========================= */
+
+.mode {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin: 20px 0;
+}
+
+
+.mode-btn {
+    padding: 10px 20px;
+
+    border: 1px solid #6f54c8;
+
+    border-radius: 25px;
+
+    background: transparent;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+
+.mode-btn:hover {
+    background: #5936aa;
+}
+
+
+.mode-btn.active {
+    background: #ffd84d;
+
+    color: #21065d;
+
+    border-color: #ffd84d;
+}
+
+
+/* =========================
+   SCOREBOARD
+========================= */
+
+.scoreboard {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+
+.score {
+    min-width: 100px;
+
+    padding: 10px;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.1);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+
+.score span {
+    display: block;
+
+    font-size: 13px;
+
+    color: #ddd;
+}
+
+
+.score strong {
+    display: block;
+
+    font-size: 24px;
+
+    margin-top: 4px;
+
+    color: #ffd84d;
+}
+
+
+/* =========================
+   TIC TAC TOE BOARD
+========================= */
+
+.board {
+    width: 330px;
+
+    height: 330px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 8px;
+
+    padding: 8px;
+
+    border-radius: 15px;
+
+    background: rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================
+   CELLS
+========================= */
+
+.cell {
+    border: none;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    color: white;
+
+    font-size: 60px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+
+.cell:hover {
+    background: rgba(255, 216, 77, 0.25);
+
+    transform: scale(1.03);
+}
+
+
+.cell.x {
+    color: #ffd84d;
+
+    text-shadow:
+        0 0 15px rgba(255, 216, 77, 0.5);
+}
+
+
+.cell.o {
+    color: #54b9ff;
+
+    text-shadow:
+        0 0 15px rgba(84, 185, 255, 0.5);
+}
+
+
+.cell.win {
+    background: #ffd84d;
+
+    color: #21065d;
+
+    animation: winner 0.5s infinite alternate;
+}
+
+
+@keyframes winner {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.05);
+    }
+}
+
+
+/* =========================
+   RESTART BUTTON
+========================= */
+
+.restart {
+    margin-top: 25px;
+
+    padding: 13px 30px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background: #ffd84d;
+
+    color: #21065d;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.restart:hover {
+    background: white;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    position: absolute;
+
+    bottom: 15px;
+
+    left: 50px;
+
+    font-size: 9px;
+
+    color: #ddd;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    .container {
+        width: 94%;
+
+        min-height: auto;
+
+        padding: 30px 20px 60px;
+    }
+
+
+    .task {
+        font-size: 38px;
+    }
+
+
+    header h1 {
+        font-size: 30px;
+    }
+
+
+    header p {
+        font-size: 21px;
+    }
+
+
+    .board {
+        width: 290px;
+
+        height: 290px;
+    }
+
+
+    .cell {
+        font-size: 50px;
+    }
+
+
+    .score {
+        min-width: 80px;
+    }
+
+
+    .score span {
+        font-size: 11px;
+    }
+
+
+    footer {
+        left: 20px;
+    }
+}
+
+
+@media (max-width: 400px) {
+
+    .board {
+        width: 250px;
+
+        height: 250px;
+    }
+
+
+    .cell {
+        font-size: 42px;
+    }
+
+
+    .score {
+        min-width: 70px;
+
+        padding: 8px 5px;
+    }
+
+
+    .score strong {
+        font-size: 20px;
+    }
+
+
+    .mode-btn {
+        padding: 8px 12px;
+
+        font-size: 12px;
+    }
+}
